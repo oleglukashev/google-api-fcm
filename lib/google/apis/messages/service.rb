@@ -19,11 +19,11 @@ module Google
           super('https://fcm.googleapis.com/', 'v1/projects/{projectId}/')
         end
 
-        # Notify topic subscribers with message
+        # Notify subscribers with message
         # @see https://firebase.google.com/docs/cloud-messaging/send-message
         #
         # @param message [Google::Apis::Messages::Message]
-        def notify_topic(message, options: nil, &block)
+        def notify(message, options: nil, &block)
           command = make_simple_command(:post, 'messages:send', options)
           command.request_representation = Google::Apis::Messages::Message::Representation
           command.request_object = message
